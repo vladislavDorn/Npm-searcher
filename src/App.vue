@@ -1,28 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app class="container">
+    <v-content>
+      <Searcher />
+      <Spinner v-if="!getState.isLoad" />
+      <PackagesList v-else :packagesData="getState.packagesData" />
+      <Modal />
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { mapGetters } from "vuex";
+
+import Searcher from "./components/Searcher";
+import Spinner from "./components/Spinner";
+import PackagesList from "./components/PackagesList";
+import Modal from "./components/Modal";
 
 export default {
-  name: 'App',
+  name: "App",
+
   components: {
-    HelloWorld
+    Searcher,
+    Spinner,
+    PackagesList,
+    Modal
+  },
+  computed: mapGetters(["getState"]),
+  mounted() {
+    console.log(this.getState.packagesData);
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+.container {
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1170px) {
+  .container {
+    padding: 0 10px;
+  }
 }
 </style>
