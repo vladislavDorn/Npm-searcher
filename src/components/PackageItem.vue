@@ -1,5 +1,5 @@
 <template>
-  <v-col class="package__item" sm="12" @click="setModalData(index)">
+  <v-col class="package__item" cols="12" sm="12" @click="setModalData(index)">
     <h2 class="package__item_name">{{ name }}</h2>
     <p class="package__item_description">{{ description }}</p>
   </v-col>

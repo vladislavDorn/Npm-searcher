@@ -1,10 +1,10 @@
 <template>
   <v-col cols="12">
     <v-row align="center" justify="center">
-      <v-col sm="10">
+      <v-col sm="10" cols="8">
         <v-text-field :value="value" @input="handler" clearable full-width label="Search package"></v-text-field>
       </v-col>
-      <v-col align="end" sm="2">
+      <v-col align="end" sm="2" cols="4">
         <v-btn
           block
           :disabled="!value"
