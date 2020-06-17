@@ -1,16 +1,15 @@
 export default class ApiService {
+  __baseUrl = "http://registry.npmjs.com/-/v1/search";
 
-    __baseUrl = "https://data.jsdelivr.com/v1"
-    
+  getData = async (name, offset=0) => {
+    const data = await fetch(
+      `${this.__baseUrl}?text=${name}&size=10&from=${offset}`
+    );
 
-    getData = async(url, name) => {
-        const data = await fetch(`${this.__baseUrl}${url}${name}`) 
-
-        if(!data.ok) {
-            throw new Error(`Error: ${data.status}`)
-        } else {
-            return data.json()
-        }
+    if (!data.ok) {
+      throw new Error(`Error: ${data.status}`);
+    } else {
+      return data.json();
     }
-
+  };
 }

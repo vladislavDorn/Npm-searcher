@@ -1,14 +1,18 @@
 <template>
-  <v-col cols="12">
-    <v-row align="center">
-      <PackageItem
-        v-for="(pack, index) in packagesData"
-        :key="index"
-        :name="pack.name"
-        :description="pack.description"
-      />
-    </v-row>
-  </v-col>
+  <div class="pakackagesList__wrapper">
+    <v-col cols="12">
+      <v-row align="center">
+        <PackageItem
+          v-for="(pack, index) in packagesData"
+          :key="index"
+          :index="index"
+          :name="pack.package.name"
+          :description="pack.package.description"
+          :setModalData="setModalData"
+        />
+      </v-row>
+    </v-col>
+  </div>
 </template>
 
 <script>
@@ -20,7 +24,8 @@ export default {
     PackageItem
   },
   props: {
-    packagesData: Array
+    packagesData: Array,
+    setModalData: Function
   }
 };
 </script>

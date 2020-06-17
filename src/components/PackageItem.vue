@@ -1,5 +1,5 @@
 <template>
-  <v-col class="package__item" sm="12">
+  <v-col class="package__item" sm="12" @click="setModalData(index)">
     <h2 class="package__item_name">{{ name }}</h2>
     <p class="package__item_description">{{ description }}</p>
   </v-col>
@@ -10,7 +10,9 @@ export default {
   name: "PackageItem",
   props: {
     name: String,
-    description: String
+    description: String,
+    index: Number,
+    setModalData: Function
   }
 };
 </script>

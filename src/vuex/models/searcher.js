@@ -1,25 +1,21 @@
-import getters from '../getters/getters'
+import getters from "../getters/getters";
+import actions from "../actions/actions";
+import mutations from "../mutations/mutations";
 
 export default {
   state: {
+    searchValue: "",
+    paginationValue: "",
     isLoad: true,
-    packagesData: [
-      {
-        name: 'First name',
-        description: "first description"
-      },
-      {
-        name: 'Second name',
-        description: "Second description"
-      },
-    ],
+    packagesData: null,
+    total: 0,
+    offset: 0,
     modal: {
       view: false,
-      data: {
-        title: "Title",
-        description: "Description"
-      }
-    }
+      data: null,
+    },
   },
-  getters
+  getters,
+  actions,
+  mutations,
 };
